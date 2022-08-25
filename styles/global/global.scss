@@ -1,0 +1,437 @@
+
+// Utils
+@import 'utils/vars';
+@import 'utils/mixins';
+@import 'utils/fonts';
+@import 'utils/reset';
+
+html {
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $mainFont;
+  font-size: $mainFontSize;
+  font-weight: $mainFontWeight;
+  line-height: $mainLineHeight;
+  color: $colorAppMainText;
+  background-color: $colorAppBg;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &.customScroll {
+    &::-webkit-scrollbar {
+      @media screen and (min-width: $desktop-1024px + 1) {
+        width: 4px;
+        height: 8px;
+      }
+    }
+    &::-webkit-scrollbar-thumb {
+      @media screen and (min-width: $desktop-1024px + 1) {
+        background-color: $colorAppMain;
+        border-radius: 0;
+      }
+    }
+    &::-webkit-scrollbar-track {
+      @media screen and (min-width: $desktop-1024px + 1) {
+        background-color: $colorWhite;
+      }
+    }
+
+    &:hover {
+      &::-webkit-scrollbar-thumb {
+        @media screen and (min-width: $desktop-1024px + 1) {
+          background-color: $colorAppMain;
+        }
+      }
+      &::-webkit-scrollbar-track {
+        @media screen and (min-width: $desktop-1024px + 1) {
+          background-color: $colorWhite;
+        }
+      }
+    }
+  }
+  &.js-overflow {
+    overflow: hidden !important;
+  }
+
+  @media screen and (max-width: $tablet-991px) {
+    line-height: 1.4;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+
+}
+
+h1, .h1 {
+  //font-family: $additionalFont;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.2;
+
+  @media screen and (max-width: $desktop-1366px) {
+    font-size: 44px;
+  }
+  @media screen and (max-width: $desktop-1024px) {
+    font-size: 40px;
+  }
+  @media screen and (max-width: $tablet-991px) {
+    font-size: 34px;
+  }
+  @media screen and (max-width: $phone-575px) {
+    font-size: 24px;
+  }
+  @media screen and (max-width: $phone-320px) {
+    font-size: 20px;
+  }
+}
+h2, .h2 {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+
+  small {
+    font-size: 14px;
+    font-weight: 400;
+    color: $colorAppC0;
+  }
+
+  @media screen and (max-width: $desktop-1366px) {
+    font-size: 24px;
+  }
+  @media screen and (max-width: $desktop-1024px) {
+    font-size: 22px;
+  }
+  @media screen and (max-width: $tablet-991px) {
+    font-size: 18px;
+  }
+  @media screen and (max-width: $phone-575px) {
+    font-size: 16px;
+  }
+}
+h3, .h3 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.2;
+
+  small {
+    font-size: 14px;
+    font-weight: 400;
+    color: $colorAppC0;
+
+    @media screen and (max-width: $desktop-1024px) {
+      font-size: 12px;
+    }
+  }
+
+  @media screen and (max-width: $desktop-1366px) {
+    font-size: 22px;
+  }
+  @media screen and (max-width: $tablet-991px) {
+    font-size: 20px;
+  }
+  @media screen and (max-width: $phone-575px) {
+    font-size: 16px;
+  }
+}
+h4, .h4 {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+
+  @media screen and (max-width: $tablet-991px) {
+    font-size: 16px;
+  }
+  @media screen and (max-width: $phone-575px) {
+    font-size: 14px;
+  }
+}
+h5, .h5 {}
+h6, .h6 {}
+
+strong {
+  font-weight: 600;
+}
+
+small {
+  font-size: 60%;
+}
+
+b {
+  font-weight: 700;
+}
+
+.textSubTitle {
+  //font-family: $additionalFont;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.2;
+
+  @media screen and (max-width: $desktop-1366px) {
+    font-size: 24px;
+  }
+  @media screen and (max-width: $desktop-1024px) {
+    font-size: 22px;
+    line-height: 1.4;
+  }
+  @media screen and (max-width: $tablet-991px) {
+    font-size: 18px;
+  }
+  @media screen and (max-width: $phone-575px) {
+    font-size: 14px;
+  }
+}
+
+.saleText {
+  vertical-align: middle;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: $colorWhite;
+  background-color: $colorAppOrange;
+  border-radius: 17px;
+  padding: 4px 16px;
+
+  @media screen and (max-width: $desktop-1366px) {
+    font-size: 13px;
+    padding: 4px 12px;
+  }
+  @media screen and (max-width: $desktop-1024px) {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+  @media screen and (max-width: $phone-575px) {
+    font-size: 12px;
+    font-weight: 400;
+    padding: 3px 10px;
+  }
+}
+.crownProduct {
+  vertical-align: middle;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(109.44deg, #325FFF 14.9%, #D356FF 92.39%);
+  border-radius: 17px;
+  padding: 2px 13px;
+
+  svg {}
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: .3s ease all;
+
+  > svg {
+    transition: .3s ease all;
+  }
+
+  &:hover {
+    color: $colorAppMain;
+  }
+
+  &.textAppMain {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+button {
+  > svg {
+    transition: .3s ease all;
+  }
+}
+
+hr {
+  border-color: $colorAppF2;
+  opacity: 1;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+li {
+  > a {
+    display: inline-block;
+  }
+}
+
+section, .section {
+  position: relative;
+  padding: 16px 0;
+
+  @media screen and (max-width: $phone-575px) {
+    padding: 12px 0;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  //min-height: 100vh;
+  padding: 16px 0;
+}
+
+.container {
+  width: 100%;
+  flex: 1 0 auto;
+  position: relative;
+  margin: 0 auto;
+
+  @media screen and (min-width: $desktop-1280px + 1) {
+    max-width: $desktop-1280px;
+  }
+  @media screen and (min-width: $desktop-1366px + 1) {
+    max-width: $desktop-1366px;
+  }
+  @media screen and (min-width: $laptop-1440px + 1) {
+    max-width: $laptop-1440px;
+  }
+  @media screen and (min-width: $laptop-1600px + 1) {
+    max-width: $laptop-1600px;
+  }
+
+  @media screen and (max-width: $phone-575px) {
+    padding: 0 34px;
+  }
+  @media screen and (max-width: $phone-375px) {
+    padding: 0 24px;
+  }
+  @media screen and (max-width: $phone-320px) {
+    padding: 0 12px !important;
+  }
+}
+
+.contentTop {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  h2 {
+    display: inline-block;
+    max-width: calc(100% - 100px);
+    margin-right: 24px;
+    margin-bottom: 0;
+  }
+  .allLink {
+    display: inline-block;
+    white-space: nowrap;
+    margin-left: auto;
+
+    @media screen and (max-width: $tablet-991px) {
+      font-size: 13px;
+    }
+    @media screen and (max-width: $phone-575px) {
+      font-size: 12px;
+    }
+  }
+}
+
+nav[aria-label="breadcrumb"] {
+  .breadcrumb {}
+  .breadcrumb-item {
+    & + .breadcrumb-item {
+      &::before {
+        display: none;
+      }
+    }
+
+    &:first-child {
+      > svg {
+        display: none;
+      }
+
+      @media screen and (max-width: $tablet-991px) {
+        display: list-item;
+      }
+    }
+
+    &:last-child {
+      @media screen and (max-width: $tablet-991px) {
+        position: relative;
+        display: list-item;
+      }
+    }
+
+    svg {
+      @media screen and (max-width: $phone-575px) {
+        @include size(16px);
+      }
+    }
+
+    &.active {
+      color: $colorAppMain;
+
+      > svg {
+        fill: $colorAppMain;
+        stroke: $colorAppMain;
+      }
+    }
+
+    @media screen and (max-width: $tablet-991px) {
+      display: none;
+    }
+    @media screen and (max-width: $phone-575px) {
+      font-size: 13px;
+    }
+    @media screen and (max-width: $phone-320px) {
+      font-size: 12px;
+    }
+  }
+}
+
+.data-section {
+  background-color: $colorWhite;
+  border-radius: 12px;
+  padding: 24px;
+
+  @media screen and (max-width: $desktop-1024px) {
+    padding: 16px;
+  }
+}
+
+.emptyBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  > img {
+    max-width: 550px;
+    height: 250px;
+    object-fit: contain;
+  }
+  > b {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  p {}
+  .appBtn {}
+}
+
+// Modules:
+@import 'common/main';

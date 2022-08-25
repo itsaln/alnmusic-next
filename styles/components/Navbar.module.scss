@@ -1,0 +1,28 @@
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #325FFF;
+  padding: 16px 42px;
+}
+
+.menuList {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-left: -12px;
+  margin-right: -12px;
+
+  > li {
+    padding-left: 12px;
+    padding-right: 12px;
+
+    a {
+      cursor: pointer;
+      font-weight: 500;
+      color: #fff;
+    }
+  }
+}

@@ -1,0 +1,202 @@
+
+.footer {}
+
+.footerTop {
+  background-color: $colorAppMainText;
+  color: $colorWhite;
+  padding: 40px 0;
+
+  &__socialList {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin: 0 -6px;
+
+    > li {
+      padding: 0 6px;
+
+      a {
+        svg {
+          &:first-child {
+            display: inline-block;
+            //visibility: visible;
+            //@include size(40px);
+          }
+          &:last-child {
+            display: none;
+            //visibility: hidden;
+            //@include size(0);
+          }
+        }
+
+        &:hover {
+          svg {
+            &:first-child {
+              display: none;
+              //visibility: hidden;
+              //@include size(0);
+            }
+            &:last-child {
+              display: inline-block;
+              //visibility: visible;
+              //@include size(40px);
+            }
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: $tablet-767px) {
+      justify-content: center;
+    }
+  }
+
+  &__connectionList {
+    > li {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 16px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      a {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1.2;
+        margin-bottom: 8px;
+      }
+      span {
+        font-size: 14px;
+        line-height: 1.2;
+        color: $colorAppMuted;
+      }
+    }
+  }
+
+  h4 {
+    &[data-toggle="collapse"] {
+      svg {
+        @media screen and (min-width: $tablet-767px + 1) {
+          display: none;
+        }
+      }
+
+      @media screen and (min-width: $tablet-767px + 1) {
+        pointer-events: none;
+        padding-right: 0;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+  &__navList {
+    &.collapse {
+      @media screen and (min-width: $tablet-767px + 1) {
+        display: block;
+      }
+    }
+
+    > li {
+      margin-bottom: 8px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      a {
+        color: $colorAppMuted;
+        line-height: 1.2;
+
+        &:hover {
+          color: $colorAppMain;
+        }
+
+        @media screen and (max-width: $phone-575px) {
+          font-size: 13px;
+        }
+      }
+
+      @media screen and (max-width: $phone-575px) {
+        margin-bottom: 4px;
+      }
+    }
+  }
+
+  &__search {
+    .form-control {
+      font-size: 14px;
+      line-height: 1.2;
+      color: $colorAppBD;
+      background-color: $colorAppF5;
+      border: 1px solid $colorAppF5;
+      border-radius: 8px;
+      padding: 9px 15px;
+      height: 36px;
+
+      &:focus {
+        border-color: $colorAppMain;
+
+        & + .input-group-text {
+          background-color: $colorAppMain;
+          border-color: $colorAppMain;
+
+          svg {
+            fill: #fff;
+            stroke: #fff;
+          }
+        }
+      }
+    }
+    .input-group-text {
+      background-color: $colorAppF5;
+      border: 0;
+      padding: 9px 12px;
+      transition: .3s ease all;
+
+      svg {}
+
+      &:hover {
+        background-color: $colorAppE0;
+      }
+    }
+  }
+
+  @media screen and (max-width: $tablet-991px) {
+    padding: 32px 0;
+  }
+  @media screen and (max-width: $tablet-767px) {
+    padding: 1.5rem 0;
+  }
+}
+
+.footerBottom {
+  padding: 24px 0;
+
+  .copyrightText {
+    line-height: 1.2;
+    color: $colorAppSecondary;
+
+    @media screen and (max-width: $phone-575px) {
+      font-size: 10px;
+    }
+  }
+  .privacyPolicyLink {
+    line-height: 1.2;
+    color: $colorAppSecondary;
+
+    &:hover {
+      color: $colorAppMain;
+      text-decoration: underline;
+    }
+
+    @media screen and (max-width: $phone-575px) {
+      font-size: 10px;
+    }
+  }
+
+  @media screen and (max-width: $phone-575px) {
+    font-size: 12px;
+  }
+}

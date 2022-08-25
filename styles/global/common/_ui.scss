@@ -1,0 +1,179 @@
+
+// Background
+.bgAppMain {
+  background-color: $colorAppMain !important;
+}
+
+// Texts
+.fw-100 {
+  font-weight: 100 !important;
+}
+.fw-200 {
+  font-weight: 200 !important;
+}
+.fw-300 {
+  font-weight: 300 !important;
+}
+.fw-400 {
+  font-weight: 400 !important;
+}
+.fw-500 {
+  font-weight: 500 !important;
+}
+.fw-600 {
+  font-weight: 600 !important;
+}
+.fw-700 {
+  font-weight: 700 !important;
+}
+.fw-800 {
+  font-weight: 800 !important;
+}
+.fw-900 {
+  font-weight: 900 !important;
+}
+
+.textAppMainText {
+  color: $colorAppMainText !important;
+}
+.textAppMain {
+  color: $colorAppMain !important;
+}
+
+.textOneLine {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.textTwoLine {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.textThreeLine {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+// Swiper
+.swiper-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.swiper-pagination {
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+.swiper-pagination-bullet {
+  opacity: 1;
+  background-color: $colorAppE0;
+  margin: 0 2.5px;
+  transition: .2s ease all;
+}
+.swiper-pagination-bullet-active {
+  background-color: $colorAppMain;
+}
+
+.swiper-button-prev, .swiper-button-next {
+  @include size(42px);
+  background-color: $colorWhite;
+  border: 1px solid $colorWhite;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
+  padding: 8px;
+  transition: .2s ease all;
+  z-index: 1;
+
+  &::after {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+    transition: .2s ease all;
+
+    @media screen and (max-width: $desktop-1280px) {
+      font-size: 12px;
+    }
+  }
+  &:hover {
+    border-color: $colorAppMain;
+
+    &::after {
+      color: $colorAppMain;
+    }
+  }
+  &.swiper-button-disabled {
+    opacity: 0;
+  }
+
+  @media screen and (max-width: $desktop-1280px) {
+    @include size(36px);
+  }
+  @media screen and (max-width: $tablet-991px) {
+    display: none;
+  }
+}
+.swiper-button-prev {
+  left: 0;
+  transform: translateX(-50%);
+}
+.swiper-button-next {
+  right: 0;
+  transform: translateX(50%);
+}
+
+// Custom elements
+.customScrollX {
+  overflow-x: auto !important;
+}
+
+.customScrollY {
+  overflow-y: auto !important;
+
+  &::-webkit-scrollbar {
+    @media screen and (min-width: $desktop-1024px + 1) {
+      @include size(7px);
+      border: none;
+      box-shadow: none;
+      padding: 0;
+    }
+  }
+  &::-webkit-scrollbar-thumb {
+    @media screen and (min-width: $desktop-1024px + 1) {
+      background-color: transparent;
+      border-radius: 5px;
+    }
+  }
+  &::-webkit-scrollbar-track {
+    @media screen and (min-width: $desktop-1024px + 1) {
+      background-color: transparent;
+    }
+  }
+
+  &:hover {
+    &::-webkit-scrollbar-thumb {
+      @media screen and (min-width: $desktop-1024px + 1) {
+        background-color: $colorAppF2;
+      }
+    }
+    &::-webkit-scrollbar-track {
+      @media screen and (min-width: $desktop-1024px + 1) {
+        background-color: $colorWhite;
+      }
+    }
+  }
+}
+
+.stickyTop {
+  position: sticky;
+  top: 16px;
+  z-index: 1;
+}

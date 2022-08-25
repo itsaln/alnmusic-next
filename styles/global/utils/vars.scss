@@ -1,0 +1,68 @@
+
+// Standard Colors
+$colorPrimary           : rgba(13, 110, 253, 1);
+$colorSuccess           : rgba(25, 135, 84, 1);
+$colorDanger            : rgba(220, 53, 69, 1);
+$colorWarning           : rgba(255, 193, 7, 1);
+$colorSecondary         : rgba(108, 117, 125, 1);
+$colorDark              : rgba(33, 37, 41, 1);
+$colorInfo              : rgba(13, 202, 240, 1);
+$colorLight             : rgba(248, 249, 250, 1);
+$colorMuted             : rgba(108, 117, 125, 1);
+$colorWhite             : rgba(255, 255, 255, 1);
+$colorWhite-50          : rgba(255, 255, 255, .5);
+$colorBlack             : rgba(0, 0, 0, 1);
+$colorBlack-50          : rgba(0, 0, 0, .5);
+
+// App Colors
+$colorAppMain           : #DD1470;
+$colorAppMainDark       : #A60F54;
+$colorAppText           : #242424;
+$colorAppBg             : #F2F3F5;
+$colorAppF2             : #F2F2F2;
+$colorAppF5             : #F5F5F5;
+$colorAppF6             : #F6F6F6;
+$colorAppED             : #EDEDED;
+$colorAppE0             : #E0E0E0;
+$colorAppE6             : #E6E6E6;
+$colorAppE8             : #E8E8E8;
+$colorAppBD             : #BDBDBD;
+$colorAppC0             : #C0C0C0;
+$colorAppC0             : #C0C0C0;
+$colorAppMainText       : #282F3C;
+$colorAppMainTextDark   : #29334B;
+$colorAppWarning        : #FFBF3C;
+$colorAppWarningDark    : #eeb337;
+$colorAppPrimary        : #007AFF;
+$colorAppDanger         : #E95050;
+$colorAppOrange         : #FC482F;
+$colorAppMuted          : #7A7D8C;
+$colorAppSecondary      : #828282;
+$colorAppGray           : #9499A5;
+$colorAppGold           : #FC9700;
+$colorAppBorder         : #444753;
+
+// Font
+$mainFont                : 'Montserrat', sans-serif;
+//$additionalFont          : 'SFProDisplay', sans-serif;
+
+// Size
+$mainFontSize            : 14px;
+$mainFontWeight          : 400;
+$mainLineHeight          : 1.6;
+
+// Devices width
+$laptop-1600px           : 1600px;
+$laptop-1440px           : 1440px;
+$desktop-1366px          : 1366px;
+$desktop-1280px          : 1280px;
+$desktop-1024px          : 1024px;
+$tablet-991px            : 991px;
+$tablet-767px            : 767px;
+$phone-575px             : 575px;
+$phone-414px             : 414px;
+$phone-375px             : 375px;
+$phone-320px             : 320px;
+
+//@media screen and (min-width: $tablet-991px + 1)
+//@media screen and (max-width: $tablet-991px)
