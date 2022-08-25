@@ -11,8 +11,8 @@ const TrackPage = () => {
 			artist: 'Singer 1',
 			text: 'About song 1',
 			listens: 5,
-			audio: 'http://localhost:5000/audio/689151d4-2618-484d-b37d-be0fe9935bfc.mp3',
-			picture: 'http://localhost:5000/image/fa4b2377-29ba-4280-aa64-f93177c76d28.aln-music',
+			audio: 'http://localhost:5000/audio/99596b50-5063-4595-8618-2b1226d3a28f.mp3',
+			picture: 'http://localhost:5000/image/38894b55-5107-4955-b5ae-73b21ebbcefb.jpg',
 			comments: []
 		}
 		const router = useRouter()

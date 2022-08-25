@@ -13,22 +13,19 @@ const steps = ['Информация о треке', 'Загрузите обл�
 const StepWrapper: React.FC<StepWrapperProps & Props> = ({ activeStep, children }) => {
 	return (
 		<Container>
-			<ul className={classNames([
-				styles.stepList,
-				{ 'activeStep': !!activeStep }
-			])}>
+			<ul className='stepList'>
 				{steps.map((step, index) =>
 					<li
 						key={index}
 						className={classNames({
-							'completed': activeStep > index
+							'completed': activeStep >= index
 						})}
 					>
-						<Text css={{ margin: 0 }}>{step}</Text>
+						<Text css={{ fontSize: 16, margin: 0 }}>{step}</Text>
 					</li>
 				)}
 			</ul>
-			<Grid.Container justify='center' css={{ margin: '70px 0', height: 270 }}>
+			<Grid.Container justify='center' css={{ margin: '70px 0', minHeight: 270 }}>
 				<Card css={{ p: '$10' }}>
 					{children}
 				</Card>

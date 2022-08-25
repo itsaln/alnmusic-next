@@ -1,27 +1,63 @@
 import React, { useState } from 'react'
 import type { NextPage } from 'next'
-import { Button, Grid, Text } from '@nextui-org/react'
+import { Button, Grid, Input, Text, Textarea } from '@nextui-org/react'
 import MainLayout from '../../layouts/MainLayout'
 import StepWrapper from '@/components/StepWrapper'
 import styles from '../../styles/pages/Create.module.scss'
+import FileUpload from '@/components/FileUpload'
 
 const Tracks: NextPage = () => {
 	const [activeStep, setActiveStep] = useState(0)
 	const back = () => {
-		setActiveStep(prev => prev - 1)
+		setActiveStep(prev => prev -= 1)
 	}
 	const next = () => {
-		setActiveStep(prev => prev + 1)
+		if (activeStep !== 2) {
+			setActiveStep(prev => prev += 1)
+		}
 	}
 
 	return (
 		<MainLayout>
 			<Grid.Container direction='column' alignItems='flex-start' css={{ p: '$10', width: 900, margin: '0 auto' }}>
 				<StepWrapper activeStep={activeStep}>
-					<Text h3 css={{ margin: '0 0 12px' }}>Download song</Text>
+					{activeStep === 0 &&
+					<Grid.Container direction='column'>
+						<Input
+							color='primary'
+							bordered
+							label='Название трека'
+							fullWidth
+							css={{ margin: '0 0 16px' }}
+						/>
+						<Input
+							color='primary'
+							bordered
+							label='Имя исполнителя'
+							fullWidth
+							css={{ margin: '0 0 16px' }}
+						/>
+						<Textarea
+							color='primary'
+							bordered
+							label='Слова к треку'
+							fullWidth
+							rows={3}
+							css={{ margin: '0 0 16px' }}
+						/>
+					</Grid.Container>
+					}
+					{activeStep === 1 &&
+					<FileUpload setFile={() => ({})} accept='image/*'>
+						<Button bordered>Загрузить изображение</Button>
+					</FileUpload>
+					}
+					{activeStep === 2 &&
+					<Text h3 css={{ margin: '0 0 12px' }}>Step 3</Text>
+					}
 				</StepWrapper>
 				<Grid.Container justify='space-between'>
-					<Button onClick={back}>Back</Button>
+					<Button disabled={activeStep === 0} onClick={back}>Back</Button>
 					<Button onClick={next}>Next</Button>
 				</Grid.Container>
 			</Grid.Container>
