@@ -8,6 +8,9 @@ import FileUpload from '@/components/FileUpload'
 
 const Tracks: NextPage = () => {
 	const [activeStep, setActiveStep] = useState(0)
+	const [picture, setPicture] = useState(null)
+	const [audio, setAudio] = useState(null)
+
 	const back = () => {
 		setActiveStep(prev => prev -= 1)
 	}
@@ -48,12 +51,14 @@ const Tracks: NextPage = () => {
 					</Grid.Container>
 					}
 					{activeStep === 1 &&
-					<FileUpload setFile={() => ({})} accept='image/*'>
+					<FileUpload setFile={setPicture} accept='image/*'>
 						<Button bordered>Загрузить изображение</Button>
 					</FileUpload>
 					}
 					{activeStep === 2 &&
-					<Text h3 css={{ margin: '0 0 12px' }}>Step 3</Text>
+					<FileUpload setFile={setAudio} accept='audio/*'>
+						<Button bordered>Загрузить аудио</Button>
+					</FileUpload>
 					}
 				</StepWrapper>
 				<Grid.Container justify='space-between'>

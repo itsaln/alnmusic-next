@@ -14,11 +14,12 @@ const FileUpload: React.FC<FileUploadProps & Props> = ({ setFile, accept, childr
 	}
 
 	return (
-		<div onClick={() => ref.current.click()}>
+		// <div onClick={() => ref.current.click()}>
+		<div>
 			<input
 				type='file'
 				accept={accept}
-				style={{ display: 'none' }}
+				// style={{ display: 'none' }}
 				ref={ref}
 				onChange={onChange}
 			/>
