@@ -28,7 +28,7 @@ const TrackItem: React.FC<TrackItemProps> = ({ track, active = false }) => {
 				containerCss={{ margin: '0 24px 0 20px', borderRadius: '8px' }}
 			/>
 			<Grid.Container direction='column' css={{ width: 200 }}>
-				<Link href='javascript:' onClick={() => router.push('/tracks/' + track._id)}>{track.name}</Link>
+				<Link onClick={() => router.push('/tracks/' + track._id)}>{track.name}</Link>
 				<div style={{ fontSize: 12, color: 'gray' }}>{track.artist}</div>
 				{active && <div>02:42 / 03:22</div>}
 			</Grid.Container>
