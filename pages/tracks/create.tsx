@@ -62,8 +62,8 @@ const Tracks: NextPage = () => {
 					}
 				</StepWrapper>
 				<Grid.Container justify='space-between'>
-					<Button disabled={activeStep === 0} onClick={back}>Back</Button>
-					<Button onClick={next}>Next</Button>
+					<Button onPress={back} disabled={activeStep === 0}>Back</Button>
+					<Button onPress={next}>Next</Button>
 				</Grid.Container>
 			</Grid.Container>
 		</MainLayout>

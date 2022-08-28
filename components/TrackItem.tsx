@@ -4,6 +4,7 @@ import { Button, Card, Grid, Image, Link } from '@nextui-org/react'
 import { Play, InfoCircle, Delete } from 'react-iconly'
 import styles from '../styles/components/TrackItem.module.scss'
 import { ITrack } from '../types/track'
+import { useActions } from '../hooks/useActions'
 
 interface TrackItemProps {
 	track: ITrack
@@ -12,12 +13,18 @@ interface TrackItemProps {
 
 const TrackItem: React.FC<TrackItemProps> = ({ track, active = false }) => {
 	const router = useRouter()
+	const { playTrack, pauseTrack, setActiveTrack } = useActions()
+
+	const play = () => {
+		setActiveTrack(track)
+		playTrack()
+	}
 
 	return (
 		<Card className={styles.track}>
 			{!active
-				? <Button auto icon={<Play />} />
-				: <Button auto icon={<InfoCircle />} />
+				? <Button onPress={play} auto icon={<Play />} />
+				: <Button onPress={play} auto icon={<InfoCircle />} />
 			}
 			<Image
 				width={70}

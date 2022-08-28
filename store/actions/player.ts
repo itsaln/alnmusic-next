@@ -1,7 +1,7 @@
 import { PlayerAction, PlayerActionTypes } from '../../types/player'
 import { ITrack } from '../../types/track'
 
-export const playerTrack = (): PlayerAction => {
+export const playTrack = (): PlayerAction => {
 	return { type: PlayerActionTypes.PLAY }
 }
 
