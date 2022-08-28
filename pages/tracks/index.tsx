@@ -10,7 +10,7 @@ const Tracks: NextPage = () => {
 	const router = useRouter()
 	const tracks: ITrack[] = [
 		{
-			_id: '1',
+			_id: '12345678_1',
 			name: 'Track 1',
 			artist: 'Singer 1',
 			text: 'About song 1',
@@ -20,7 +20,7 @@ const Tracks: NextPage = () => {
 			comments: []
 		},
 		{
-			_id: '1',
+			_id: '12345678_2',
 			name: 'Track 2',
 			artist: 'Singer 2',
 			text: 'About song 2',
@@ -30,7 +30,7 @@ const Tracks: NextPage = () => {
 			comments: []
 		},
 		{
-			_id: '1',
+			_id: '12345678_3',
 			name: 'Track 3',
 			artist: 'Singer 3',
 			text: 'About song 3',
@@ -46,7 +46,7 @@ const Tracks: NextPage = () => {
 			<Grid.Container justify='center'>
 				<Card css={{ p: '$10', width: 900 }}>
 					<Grid.Container justify='space-between' alignItems='center' css={{ margin: '0 0 32px' }}>
-						<Text h2 css={{ margin: 0 }}>List of tracks</Text>
+						<Text h3 css={{ margin: 0 }}>List of tracks</Text>
 						<Button onClick={() => router.push('/tracks/create')}>Upload</Button>
 					</Grid.Container>
 					<TrackList tracks={tracks} />
