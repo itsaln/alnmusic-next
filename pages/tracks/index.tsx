@@ -1,45 +1,32 @@
-import type { NextPage } from 'next'
+import type { GetServerSideProps, NextPage } from 'next'
 import { useRouter } from 'next/router'
 import styles from '../../styles/pages/Tracks.module.scss'
 import { Button, Card, Grid, Text } from '@nextui-org/react'
 import MainLayout from '../../layouts/MainLayout'
 import { ITrack } from '../../types/track'
 import TrackList from '@/components/TrackList'
+import { useTypedSelector } from '../../hooks/useTypedSelector'
+import { NextThunkDispatch, wrapper } from '../../store'
+import { fetchTracks } from '../../store/actions/track'
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 
 const Tracks: NextPage = () => {
 	const router = useRouter()
-	const tracks: ITrack[] = [
-		{
-			_id: '12345678_1',
-			name: 'Track 1',
-			artist: 'Singer 1',
-			text: 'About song 1',
-			listens: 5,
-			audio: 'http://localhost:5000/audio/99596b50-5063-4595-8618-2b1226d3a28f.mp3',
-			picture: 'http://localhost:5000/image/38894b55-5107-4955-b5ae-73b21ebbcefb.jpg',
-			comments: []
-		},
-		{
-			_id: '12345678_2',
-			name: 'Track 2',
-			artist: 'Singer 2',
-			text: 'About song 2',
-			listens: 5,
-			audio: 'http://localhost:5000/audio/99596b50-5063-4595-8618-2b1226d3a28f.mp3',
-			picture: 'http://localhost:5000/image/38894b55-5107-4955-b5ae-73b21ebbcefb.jpg',
-			comments: []
-		},
-		{
-			_id: '12345678_3',
-			name: 'Track 3',
-			artist: 'Singer 3',
-			text: 'About song 3',
-			listens: 5,
-			audio: 'http://localhost:5000/audio/99596b50-5063-4595-8618-2b1226d3a28f.mp3',
-			picture: 'http://localhost:5000/image/38894b55-5107-4955-b5ae-73b21ebbcefb.jpg',
-			comments: []
-		}
-	]
+	const { tracks, error } = useTypedSelector(state => state.track)
+
+	// const dispatch = useDispatch()
+
+	// @ts-ignore
+	// dispatch(fetchTracks())
+
+	if (error) {
+		return (
+			<MainLayout>
+				<h1>{error}</h1>
+			</MainLayout>
+		)
+	}
 
 	return (
 		<MainLayout>
@@ -57,3 +44,13 @@ const Tracks: NextPage = () => {
 }
 
 export default Tracks
+
+// export const getServerSideProps = wrapper.getServerSideProps(async ({ store }) => {
+// 	console.log(store)
+// })
+
+// @ts-ignore
+// export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(async ({ store }) => {
+// 	const dispatch = store.dispatch as NextThunkDispatch
+// 	await dispatch(await fetchTracks())
+// })

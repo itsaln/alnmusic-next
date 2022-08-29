@@ -29,7 +29,7 @@ const TrackItem: React.FC<TrackItemProps> = ({ track, active = false }) => {
 			<Image
 				width={70}
 				height={70}
-				src={track.picture}
+				src={'http://localhost:5000/api' + track.picture}
 				alt={track.text}
 				objectFit='cover'
 				containerCss={{ margin: '0 24px 0 20px', borderRadius: '8px' }}
