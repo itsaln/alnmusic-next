@@ -1,30 +1,21 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { ITrack } from '../../types/track'
 import MainLayout from '../../layouts/MainLayout'
 import { Button, Grid, Image, Input, Text, Textarea } from '@nextui-org/react'
 import { useRouter } from 'next/router'
-import type { GetServerSideProps } from 'next'
-import axios from 'axios'
-import { useInput } from '../../hooks/useInput'
 
-const TrackPage = ({ serverTrack }) => {
-	const [track, setTrack] = useState<ITrack>(serverTrack)
-	const router = useRouter()
-	const username = useInput('')
-	const text = useInput('')
-
-	const addComment = async () => {
-		try {
-			const response = await axios.post('https://localhost:5000/api/tracks/comment', {
-				username: username.value,
-				text: text.value,
-				trackId: track._id
-			})
-			setTrack({...track, comments: [...track.comments, response.data]})
-		} catch (e) {
-			console.log(e)
-		}
+const TrackPage = () => {
+	const track: ITrack = {
+		_id: '12345678_1',
+		name: 'Track 1',
+		artist: 'Singer 1',
+		text: 'About song 1',
+		listens: 5,
+		audio: 'http://localhost:5000/audio/99596b50-5063-4595-8618-2b1226d3a28f.mp3',
+		picture: 'http://localhost:5000/image/38894b55-5107-4955-b5ae-73b21ebbcefb.jpg',
+		comments: []
 	}
+	const router = useRouter()
 
 	return (
 		<MainLayout>
@@ -38,7 +29,7 @@ const TrackPage = ({ serverTrack }) => {
 					<Image
 						width={200}
 						height={200}
-						src={'https://localhost:5000/api' + track.picture}
+						src={track.picture}
 						alt={track.text}
 						objectFit='cover'
 						containerCss={{ margin: 0, borderRadius: '8px' }}
@@ -54,7 +45,6 @@ const TrackPage = ({ serverTrack }) => {
 				<Text h3 css={{ margin: '0 0 16px' }}>Comments</Text>
 				<Grid.Container>
 					<Input
-						{...username}
 						color='primary'
 						bordered
 						label='Your name'
@@ -62,7 +52,6 @@ const TrackPage = ({ serverTrack }) => {
 						css={{ margin: '0 0 16px' }}
 					/>
 					<Textarea
-						{...text}
 						color='primary'
 						bordered
 						label='Comment'
@@ -70,7 +59,7 @@ const TrackPage = ({ serverTrack }) => {
 						rows={4}
 						css={{ margin: '0 0 16px' }}
 					/>
-					<Button onPress={addComment}>Submit</Button>
+					<Button>Submit</Button>
 				</Grid.Container>
 				<div>
 					{track.comments.map(comment =>
@@ -86,12 +75,3 @@ const TrackPage = ({ serverTrack }) => {
 }
 
 export default TrackPage
-
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-	const response = await axios.get('https://localhost:5000/api/tracks/' + params.id)
-	return {
-		props: {
-			serverTrack: response.data
-		}
-	}
-}
